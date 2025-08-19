@@ -27,7 +27,6 @@ const DashboardPage = () => {
   const { userRole } = useAuth();
 
   useEffect(() => {
-    // Only fetch content for regular users
     if (userRole === "user") {
       const fetchContent = async () => {
         try {
@@ -53,12 +52,10 @@ const DashboardPage = () => {
     );
   }
 
-  // Conditionally render based on user role
   if (userRole === "admin") {
     return <AdminDashboard />;
   }
 
-  // Regular user dashboard content
   return (
     <div className="container mx-auto p-8">
       <h1 className="text-3xl font-bold mb-6">User Dashboard</h1>
